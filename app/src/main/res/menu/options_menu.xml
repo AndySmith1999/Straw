@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/PI"
+        android:title="Contacts' information" />
+    <item android:id="@+id/NS"
+        android:title="News" />
+    <item android:id="@+id/ST"
+        android:title="Setting" />
+    <item android:id="@+id/LO"
+        android:title="Log out" />
+</menu>
