@@ -1,12 +1,14 @@
 package com.example.straw;
 
 import android.app.Application;
- 
+import android.content.Context;
+
 import com.example.straw.UtilDao;
 
 public class MyApplication extends Application {
+    private static Context context;
     private UtilDao dao;
- 
+
     /**
      * Call this when it is created
      * */
@@ -14,6 +16,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         dao = new UtilDao(this);
+        context = getApplicationContext();
     }
  
     /**
@@ -28,5 +31,8 @@ public class MyApplication extends Application {
  
     public UtilDao getDao() {
         return dao;
+    }
+    public static Context getContextObject(){
+        return context;
     }
 }

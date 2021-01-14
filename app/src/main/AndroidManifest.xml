@@ -27,12 +27,22 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
         android:name=".MyApplication"
+        android:usesCleartextTraffic="true"
         >
-        <!--设置key-->
+        <provider android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.straw.fileProvider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!--set the key-->
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="01647280fcd2196c10c019982e02accb" />
-        <!--声明定位service-->
+        <!--define the locating service-->
 
         <activity android:name=".MainActivity" >
 
@@ -44,9 +54,10 @@
         <activity android:name=".AddData"
             tools:ignore="Instantiatable" />
         <activity android:name=".contact_activity"/>
-        <activity android:name=".log_in"/>
+        <activity android:name=".NewsActivity"/>
+        <activity android:name=".NewsDisplayActvivity"/>
+        <activity android:name=".settingActivity"/>
+        <activity android:name=".shareActivity"/>
+        <activity android:name=".aboutActivity"/>
     </application>
-
-    
-
 </manifest>

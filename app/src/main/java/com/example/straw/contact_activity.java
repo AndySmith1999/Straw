@@ -56,7 +56,6 @@ public class contact_activity extends AppCompatActivity implements View.OnClickL
      *  Show ListView
      * */
     public void showListView(){
-        //查询数据
         /**
          * Add data to the list
          * **/
@@ -93,7 +92,7 @@ public class contact_activity extends AppCompatActivity implements View.OnClickL
                 User userDel = list.get(listNum);
                 switch (i){
                     case DialogInterface.BUTTON_POSITIVE:
-                        dao.delData("userName=?",new String[]{userDel.getName()});
+                        dao.delData(getResources().getString(R.string.username),new String[]{userDel.getName()});
                         refresh();
                         break;
                     case DialogInterface.BUTTON_NEGATIVE:
@@ -102,10 +101,10 @@ public class contact_activity extends AppCompatActivity implements View.OnClickL
                 }
             }
         };
-        builder.setTitle("Are you sure to delete this contact?");
-        builder.setMessage("Are you sure to delete this contact?");
-        builder.setPositiveButton("sure", dialogOnClick);
-        builder.setNegativeButton("cancel",dialogOnClick);
+        builder.setTitle(getResources().getString(R.string.delete));
+//        builder.setMessage(getResources().getString(R.string.delete));
+        builder.setPositiveButton(getResources().getString(R.string.sure), dialogOnClick);
+        builder.setNegativeButton(getResources().getString(R.string.cancel),dialogOnClick);
         builder.create().show();
     }
 
@@ -114,13 +113,12 @@ public class contact_activity extends AppCompatActivity implements View.OnClickL
      * */
     
     public void dialogList(){
-        final String[] items = {"ring up","send sms","edit","delete"};
+        final String[] items = {getResources().getString(R.string.ring),getResources().getString(R.string.sms),getResources().getString(R.string.edit),getResources().getString(R.string.delete1)};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
-                //拿到当前选中项的 User 对象
                 User userNum = list.get(listNum);
                 Intent intent;
                 switch (i){
@@ -204,24 +202,24 @@ public class contact_activity extends AppCompatActivity implements View.OnClickL
     }
 
     /**
-     * 上一个页面传回来的值
+     *  Here do the modifies to the database
      * */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
-            //请求码为1，表示点击了添加按钮
+            // When user click the ADD button
             case 1:
-                //执行添加方法
+                // Add user to the database
                 if (resultCode == RESULT_OK) {
                     String[] key = data.getStringArrayExtra("key");
                     String[] values = data.getStringArrayExtra("values");
                     dao.addData("UserInfo", key, values);
                 }
                 break;
-            //请求码为2，表示点击了编辑按钮
+            // When user click the EDIT button
             case 2:
-                //执行修改方法
+                // Edit information in the database
                 if (resultCode == RESULT_OK) {
                     User user = list.get(listNum);
                     String name = data.getStringExtra("name");

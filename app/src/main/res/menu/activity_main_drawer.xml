@@ -7,26 +7,22 @@
         <item
             android:id="@+id/nav_info"
             android:icon="@drawable/login"
-            android:title="Contact info" />
+            android:title="@string/coninfo" />
         <item
             android:id="@+id/nav_news"
             android:icon="@drawable/news"
-            android:title="News" />
-        <item
-            android:id="@+id/nav_instructions"
-            android:icon="@drawable/instructions"
-            android:title="Instructions" />
+            android:title="@string/news" />
         <item
             android:id="@+id/nav_share"
             android:icon="@drawable/share"
-            android:title="Share" />
+            android:title="@string/share" />
         <item
             android:id="@+id/nav_setting"
             android:icon="@drawable/setting"
-            android:title="Settings" />
+            android:title="@string/set" />
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/about"
-            android:title="About" />
+            android:title="@string/about" />
     </group>
 </menu>

@@ -9,20 +9,20 @@
         android:id="@+id/add_edit_name"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="contact's name"/>
+        android:hint="@string/connam"/>
 
     <EditText
         android:id="@+id/add_edit_phone"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="telephone number"
+        android:hint="@string/tel"
         android:layout_below="@id/add_edit_name"/>
 
     <Button
         android:id="@+id/add_but"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Okay"
+        android:text="@string/ok"
         android:layout_below="@id/add_edit_phone"
         android:layout_alignParentRight="true"/>
 

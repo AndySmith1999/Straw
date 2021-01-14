@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements LocationSource, A
 
 
         //Set the display location button and can be clicked
-        UiSettings settings = aMap.getUiSettings();
+        final UiSettings settings = aMap.getUiSettings();
         //Set up position monitoring
         aMap.setLocationSource(this);
         // Whether to display the positioning button
@@ -134,6 +134,7 @@ public class MainActivity extends AppCompatActivity implements LocationSource, A
                     // Send SMS
                     sManager.sendTextMessage(user.getPhone(), null, "SOS! I'm in the " + location + " PLease help me!", pi, null);
                 }
+                Toast.makeText(getApplicationContext(), "Message has been send successfully!", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.addCategory(Intent.CATEGORY_HOME);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -165,6 +166,27 @@ public class MainActivity extends AppCompatActivity implements LocationSource, A
                         i = new Intent(MainActivity.this, contact_activity.class);
                         startActivity(i);
                         break;
+
+                    case R.id.nav_news:
+                        i = new Intent(MainActivity.this, NewsActivity.class);
+                        startActivity(i);
+                        break;
+
+                    case R.id.nav_setting:
+                        i = new Intent(MainActivity.this, settingActivity.class);
+                        startActivity(i);
+                        break;
+
+                    case R.id.nav_share:
+                        i = new Intent(MainActivity.this, shareActivity.class);
+                        startActivity(i);
+                        break;
+
+                    case R.id.nav_about:
+                        i = new Intent(MainActivity.this, aboutActivity.class);
+                        startActivity(i);
+                        break;
+
                     default:
                         Toast.makeText(MainActivity.this, "Coming soon", Toast.LENGTH_LONG).show();
                         break;
@@ -313,7 +335,7 @@ public class MainActivity extends AppCompatActivity implements LocationSource, A
                 Log.e("AmapError", "location Error, ErrCode:"
                         + aMapLocation.getErrorCode() + ", errInfo:"
                         + aMapLocation.getErrorInfo());
-                Toast.makeText(getApplicationContext(), "Positioning failed", Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), "Positioning failed", Toast.LENGTH_LONG).show();
             }
         }
     }

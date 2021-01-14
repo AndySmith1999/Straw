@@ -1,0 +1,25 @@
+<resources>
+    <string name="connam">联系人名字</string>
+    <string name="tel">电话号码</string>
+    <string name="ok">确认</string>
+    <string name="help">求救!</string>
+    <string name="Contacts">联系人</string>
+    <string name="Navi">NavigationDrawerContent</string>
+    <string name="coninfo">联系人信息</string>
+    <string name="news">新闻</string>
+    <string name="instruct">使用教程</string>
+    <string name="share">分享</string>
+    <string name="set">设置</string>
+    <string name="about">关于</string>
+    <string name="delete">确定要删除此联系人？</string>
+    <string name="sure">确定</string>
+    <string name="cancel">取消</string>
+    <string name="username">用户名=?</string>
+    <string name="ring">通话</string>
+    <string name="sms">发送信息</string>
+    <string name="edit">编辑</string>
+    <string name="delete1">删除</string>
+    <string name="share1">分享给你的朋友!</string>
+    <string name="share2">分享</string>
+    <string name="changeLanguage">改变程序的语言</string>
+</resources>
